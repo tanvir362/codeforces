@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<string.h>
+int main(void)
+{
+    int c1,r1,c2,r2,i=0,j;
+    char s[4],t[4],path[16][4];
+    gets(s);
+    gets(t);
+    c1=s[0]%96;
+    r1=s[1]-48;
+    c2=t[0]%96;
+    r2=t[1]-48;
+    while(c1<c2&&r1<r2){
+        strcpy(path[i],"RU");
+        c1++;
+        r1++;
+        i++;
+    }
+    while(c1>c2&&r1>r2){
+        strcpy(path[i],"LD");
+        c1--;
+        r1--;
+        i++;
+    }
+    while(c1<c2&&r1>r2){
+        strcpy(path[i],"RD");
+        c1++;
+        r1--;
+        i++;
+    }
+    while(c1>c2&&r1<r2){
+        strcpy(path[i],"LU");
+        c1--;
+        r1++;
+        i++;
+    }
+    while(c1<c2){
+        strcpy(path[i],"R");
+        c1++;
+        i++;
+    }
+    while(c1>c2){
+        strcpy(path[i],"L");
+        c1--;
+        i++;
+    }
+    while(r1<r2){
+        strcpy(path[i],"U");
+        r1++;
+        i++;
+    }
+    while(r1>r2){
+        strcpy(path[i],"D");
+        r1--;
+        i++;
+    }
+    printf("%d\n",i);
+    for(j=0;j<i;j++) printf("%s\n",path[j]);
+    return 0;
+}
